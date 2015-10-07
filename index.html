@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      #ui {
+        min-width: 250px;
+        width: 20%;
+        max-width: 350px;
+        float:left;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      #ui div {
+        margin-top: 5px;
+      }
+      #ui textarea {
+        width: 100%;
+        min-width:100%;
+        max-width:100%;
+      }
+
+      #ui input {
+        width: 100%;
+      }
+      #ui input[type=number] {
+        width: 4em;
+      }
+      #ui input[type=checkbox] {
+        width: inherit;
+      }
+      /*
+      #ui .size input {
+        width: 4em;
+      }*/
+      #display {
+        display: table;
+        float:left;
+      }
+      #display pre {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ui">
+      <div class="size">
+        <input type="number" id="nx" value="16"> x <input type="number" id="ny" value="16"><br>
+        <button id="sizePlus">+</button><button id="sizeMinus">-</button>
+        <button id="sizeDouble">*2</button><button id="sizeHalf">/2</button>
+      </div>
+      <div><label>line width</label><input type="number" id="lw" value="1"></div>
+      <div>stroke style<br><input type="text" id="str" value="#333" list="colors"></div>
+      <div>fill style<br><input type="text" id="fll" value="rgba(0,0,0,0.3)" list="colors"></div>
+      <div>background<br><input type="text" id="bg" value="rgba(0,0,0,0.3)" list="colors"></div>
+      <div><label><input type="checkbox" id="trc" > trace path</label></div>
+      <div><label><input type="checkbox" id="tlc" checked="checked"> translucent path</label></div>
+      <div>
+        path<br>
+        <textarea id="path" rows="20">M1.5 11.5 8 3 14.5 11.5 Z</textarea>
+      </div>
+      <div><label><input type="checkbox" id="rot0" checked="checked" >0&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot45" >45&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot90" >90&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot135">135&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot180">180&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot225">225&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot270">270&deg; rotation</label></div>
+      <div><label><input type="checkbox" id="rot315">315&deg; rotation</label></div>
+
+      <div><label><input type="checkbox" id="mirrX">mirror X</label></div>
+      <div><label><input type="checkbox" id="mirrY">mirror Y</label></div>
+      <div><label><input type="checkbox" id="mirrXY">mirror XY</label></div>
+      <div><label><input type="checkbox" id="mirrXnY">mirror X-Y</label></div>
+      <div>
+        <a id="permalink" href="#">permalink</a>
+      </div>
+    </div>
+    <div id="display">
+      <div id="canvaswrapper">
+        <canvas></canvas>
+      </div>
+      <div>
+        <a id="svgurl" href="about:blank"><img id="svgimg" src="data:image/png;base64,"> (data: URL)</a>
+        <pre>
+          <div id="svgcode"></div>
+        </pre>
+
+      </div>
+    </div>
+    <datalist id="colors">
+      <option value="#fff">White
+      <option value="#000">Black
+      <option value="#333">Dark Grey
+      <option value="rgba(0,0,0,0.1)">10% translucent black
+    </datalist>
+    <script src="transformer.js"></script>
+    <script src="template.js"></script>
+    <script src="iconedit.js"></script>
+  </body>
+</html>
